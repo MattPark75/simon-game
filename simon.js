@@ -57,19 +57,13 @@ function Simon () {
 
         // Keydown event listener
         that.set_start_key();
-
-        // Start button
-        $("div.btn#start").on("click", function() {
-            $(document).trigger("keydown");
-        });
-
     }
 
     /** set_start_key
      * Set the event listener for keydown to start a game
      */
     this.set_start_key = function() {
-        $(document).one("keydown", function(e) {
+        $("div.btn#start").one("click", function(e) {
             that.start_game();
         });
     }
