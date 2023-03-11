@@ -32,29 +32,37 @@ function Simon () {
         // event listeners
         $("div.btn").on("click", function() {
             var el = this;
-            console.log($(el).attr("id"));
 
-            // play sound when clicked
-            audio = new Audio(cfg.SOUNDS_PATH + $(el).attr("id") + ".mp3");
-            audio.addEventListener("canplaythrough", (e) => {
-                audio.play();
-            });
+            if ($(el).attr("id") !== "start") {
+                // play sound when clicked
+                audio = new Audio(cfg.SOUNDS_PATH + $(el).attr("id") + ".mp3");
+                audio.addEventListener("canplaythrough", (e) => {
+                    audio.play();
+                });
 
-            // animate buttons when clicked
-            $(el).addClass("pressed");
-            setTimeout(function() {
-                console.log(el);
-                $(el).removeClass("pressed");
-            }, 100)
+                // animate buttons when clicked
+                $(el).addClass("pressed");
+                setTimeout(function() {
+                    console.log(el);
+                    $(el).removeClass("pressed");
+                }, 100)
 
-            // if game is started check player's sequence (player's turn)
-            if (that.isPlayersTurn) {
-                that.playerSQ.push($(el).attr("id"));
-                that.players_turn();
+                // if game is started check player's sequence (player's turn)
+                if (that.isPlayersTurn) {
+                    that.playerSQ.push($(el).attr("id"));
+                    that.players_turn();
+                }
             }
         });
 
+        // Keydown event listener
         that.set_start_key();
+
+        // Start button
+        $("div.btn#start").on("click", function() {
+            $(document).trigger("keydown");
+        });
+
     }
 
     /** set_start_key
@@ -116,7 +124,6 @@ function Simon () {
             // update hiScore
             if (that.level > Number(that.hiScore)) {
                 that.hiScore = that.level;
-                console.log("update: " + that.hiScore);
                 localStorage.setItem('hiScore', that.level);
                 that.update_hiscore();
             }
@@ -144,7 +151,7 @@ function Simon () {
             audio = new Audio(cfg.SOUNDS_PATH + "wrong.mp3");
 
         audio.play();
-        $("#level-title").html("Game Over!<br><br>Press Any Key to Start");
+        $("#level-title").html("Game Over!");
         for (i=1; i<3; i++) {
             $("body").removeClass("game-over");
         }    

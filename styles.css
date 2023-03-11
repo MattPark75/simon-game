@@ -1,10 +1,10 @@
 body {
   text-align: center;
   background-color: #011F3F;
+  font-family: 'Press Start 2P', cursive;
 }
 
 #level-title {
-  font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin:  5%;
   min-width: 560px;
@@ -13,7 +13,6 @@ body {
 }
 
 #hiscore {
-  font-family: 'Press Start 2P', cursive;
   font-size: 1.5rem;
   color: #FEF2BF;
   min-width: 560px;
@@ -34,6 +33,23 @@ body {
   width: 200px;
   border: 10px solid black;
   border-radius: 20%;
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn.start {
+  font-size: 0.55rem;
+  font-weight: bold;
+  line-height: 50px;
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #FEF2BF;
+}
+.btn.start:hover {
+  box-shadow: 0 0 20px white;
 }
 
 .game-over {
