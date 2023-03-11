@@ -13,6 +13,7 @@ body {
 }
 
 #hiscore {
+  margin-bottom: 7%;
   font-size: 1.5rem;
   color: #FEF2BF;
   min-width: 560px;
@@ -27,7 +28,7 @@ body {
 }
 
 .btn {
-  margin: 25px;
+  margin: 20px;
   display: inline-block;
   height: 200px;
   width: 200px;
@@ -41,10 +42,10 @@ body {
 .btn.start {
   font-size: 0.55rem;
   font-weight: bold;
-  line-height: 50px;
+  line-height: 60px;
   margin: 0;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%;
   background-color: #FEF2BF;
 }
